@@ -18,7 +18,7 @@ var display = document.getElementById("anime-display");
 
   
             let count = `${animeapi.pagination.items.total}`;
-  
+            display.innerHTML ="";
             for (let i = 0 ; i < count ; i++){
              if(animeapi.data[i].trailer.embed_url !== null){
                 display.innerHTML +=  ` <div class="column">
@@ -26,15 +26,17 @@ var display = document.getElementById("anime-display");
                 <iframe class="youtube" src="`+ animeapi.data[i].trailer.embed_url + `frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 <div class="card-body">
-                    <h4 class="card-title">Card Title</h4>
-                    <p class="card-text">Here is a longer description of the card and the height will be auto aligned with
-                        flex box.</p>
+                    <h4 class="card-title">`+ animeapi.data[i].titles[i].title + `</h4>
+                    <p class="card-text">`+ animeapi.data[i].synopsis+ `</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Here is a footer</small>
+                    <small class="text-muted">
+
+                    <a href="`+ animeapi.data[i].url+ `" target="_blank">Link</a></small>
                 </div>
             </div>`
            }
+
             }
           
             

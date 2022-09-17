@@ -11,7 +11,9 @@
     </title>
 </head>
 <style>
-   
+   body, html{
+    overflow-x: hidden;
+   }
 .column {
   float: left;
 
@@ -25,7 +27,7 @@
 .row {margin: 1rem 5%;
 
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 
 flex-direction: row;
     flex-wrap: wrap;
@@ -61,6 +63,14 @@ flex-direction: row;
         height: 20rem;
         width: 100%;
     }
+    .card-text{
+        height:100px;
+        width: 20rem;
+        overflow-y: scroll;
+    }
+    .card-footer a{
+         color: black;
+    }
 </style>
 <body>
 
@@ -72,8 +82,8 @@ flex-direction: row;
     <button id="buttons" >Submit</button>
 </div></div>
     <div class="row" id="anime-display">
-       
-      
+
+   
        
     </div>
  
