@@ -1,7 +1,8 @@
-const button = document.getElementById('buttons');
+var button = document.getElementById('buttons');
 button.addEventListener('click', () => {
-
+    
     const input_value = document.getElementById("searchTxt").value;
+    document.getElementById('searchTxt').value =''
     fetch('https://api.jikan.moe/v4/anime?q='+  input_value +'&sfw')
     .then(res => {
         return res.json();
@@ -19,7 +20,7 @@ var display = document.getElementById("anime-display");
             let count = `${animeapi.pagination.items.total}`;
   
             for (let i = 0 ; i < count ; i++){
-
+             if(animeapi.data[i].trailer.embed_url !== null){
                 display.innerHTML +=  ` <div class="column">
                 <div class="animeImage">
                 <iframe class="youtube" src="`+ animeapi.data[i].trailer.embed_url + `frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -33,8 +34,8 @@ var display = document.getElementById("anime-display");
                     <small class="text-muted">Here is a footer</small>
                 </div>
             </div>`
-
+           }
             }
           
-           
+            
         }
